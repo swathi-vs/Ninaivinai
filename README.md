@@ -1,4 +1,4 @@
-# 🧠 Ninaivinai — Semantic Video Memory Search
+# Ninaivinai — Semantic Video Memory Search
 
 > *"Search videos by meaning, not by timestamps."*
 
@@ -6,21 +6,21 @@ Ninaivinai (நினைவினை — Tamil for "memory") is a modern web app
 
 ---
 
-## ✨ Features
+## Features
 
-- **🎥 Video Upload** — Drag-and-drop or browse to upload video files (MP4, WebM)
-- **🎵 Client-Side Audio Extraction** — Converts video to lightweight MP3 locally before uploading, drastically reducing transfer time
-- **🗣️ Automatic Transcription** — Audio is transcribed using OpenAI's Whisper model via the backend
-- **🧩 Semantic Chunking** — Transcripts are split into overlapping segments with embeddings for better retrieval accuracy
-- **🗄️ Vector Database Indexing** — Chunks are stored in Qdrant with cosine similarity search
-- **💬 Natural Language Search** — Ask questions like *"When did we discuss the Q3 budget?"* and get precise results
-- **⏱️ Timeline Jump** — Click any search result to instantly seek the video player to the exact moment
-- **🌗 Dark / Light Mode** — Toggle between warm dark and light themes with persistent preference
-- **📊 Real-Time Processing UI** — Beautiful progress bar with step-by-step status during indexing
+- **Video Upload** — Drag-and-drop or browse to upload video files (MP4, WebM)
+- **Client-Side Audio Extraction** — Converts video to lightweight MP3 locally before uploading, drastically reducing transfer time
+- **Automatic Transcription** — Audio is transcribed using OpenAI's Whisper model via the backend
+- **Semantic Chunking** — Transcripts are split into overlapping segments with embeddings for better retrieval accuracy
+- **Vector Database Indexing** — Chunks are stored in Qdrant with cosine similarity search
+- **Natural Language Search** — Ask questions like *"When did we discuss the Q3 budget?"* and get precise results
+- **Timeline Jump** — Click any search result to instantly seek the video player to the exact moment
+- **Dark / Light Mode** — Toggle between warm dark and light themes with persistent preference
+- **Real-Time Processing UI** — Beautiful progress bar with step-by-step status during indexing
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -36,7 +36,7 @@ Ninaivinai (நினைவினை — Tamil for "memory") is a modern web app
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Ninaivinai/
@@ -73,18 +73,18 @@ Ninaivinai/
     │   ├── api.js                  # All backend API calls
     │   └── mockApi.js              # (Legacy — mock data)
     └── utils/
-        └── audioConverter.js       # Client-side video → MP3 converter
+        └── audioConverter.js       # Client-side video to MP3 converter
 ```
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-- **Node.js** ≥ 18
-- **npm** ≥ 9
-- **Backend API** running (FastAPI + Qdrant) — see [Backend Setup](#-backend-api)
+- **Node.js** >= 18
+- **npm** >= 9
+- **Backend API** running (FastAPI + Qdrant) — see [Backend API](#backend-api)
 
 ### Installation
 
@@ -116,11 +116,11 @@ const BASE_URL = 'https://your-ngrok-url.ngrok-free.dev';
 
 ---
 
-## 🔄 Application Workflow
+## Application Workflow
 
 ```
 ┌──────────────┐     ┌──────────────┐     ┌──────────────────┐
-│   Landing    │────▶│  Dashboard   │────▶│    Workspace      │
+│   Landing    │────>│  Dashboard   │────>│    Workspace      │
 │    Page      │     │  (Upload)    │     │  (Process + Chat) │
 └──────────────┘     └──────────────┘     └──────────────────┘
 ```
@@ -141,24 +141,24 @@ Once complete (100%), the video player and semantic chat interface are revealed.
 ### Search Flow
 
 ```
-User Query → POST /embedding → POST /search → Best Sentence Match → Jump to Timestamp
+User Query -> POST /embedding -> POST /search -> Best Sentence Match -> Jump to Timestamp
 ```
 
 ---
 
-## 🔌 Backend API
+## Backend API
 
 The frontend communicates with a **FastAPI** backend. All endpoints are documented in `backend_temp_understand.py`.
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/` | GET | Health check |
-| `/transcribe` | POST | Upload audio file → Returns transcript JSON |
-| `/embedding` | POST | Text → 1024-dim sentence embedding |
-| `/add_overlap` | POST | Transcript → Semantically chunked segments with embeddings |
+| `/transcribe` | POST | Upload audio file, returns transcript JSON |
+| `/embedding` | POST | Text to 1024-dim sentence embedding |
+| `/add_overlap` | POST | Transcript to semantically chunked segments with embeddings |
 | `/create_collection` | POST | Create a Qdrant vector collection |
 | `/add` | POST | Insert embedding chunks into a collection |
-| `/search` | POST | Semantic vector search → Returns best sentence match |
+| `/search` | POST | Semantic vector search, returns best sentence match |
 | `/search_with_filter` | POST | Filtered semantic search |
 
 ### Backend Requirements
@@ -175,12 +175,12 @@ docker run -p 6333:6333 qdrant/qdrant
 
 # Start the backend
 python backend_temp_understand.py
-# → Runs on http://0.0.0.0:8000
+# Runs on http://0.0.0.0:8000
 ```
 
 ---
 
-## 🎨 Design System
+## Design System
 
 The UI uses a **warm terracotta** color palette with glassmorphism effects:
 
@@ -188,7 +188,7 @@ The UI uses a **warm terracotta** color palette with glassmorphism effects:
 |-------|-----------|------------|
 | `--bg-color` | `#1a1716` (warm charcoal) | `#faf6f0` (warm cream) |
 | `--accent-color` | `#eb5e28` (terracotta) | `#eb5e28` (terracotta) |
-| `--accent-gradient` | `#eb5e28 → #f4a261` | `#eb5e28 → #f4a261` |
+| `--accent-gradient` | `#eb5e28 to #f4a261` | `#eb5e28 to #f4a261` |
 | `--panel-bg` | `rgba(38,33,30,0.7)` | `rgba(255,255,255,0.65)` |
 
 Key design features:
@@ -200,7 +200,7 @@ Key design features:
 
 ---
 
-## 📜 Available Scripts
+## Available Scripts
 
 | Command | Description |
 |---------|-------------|
@@ -211,7 +211,7 @@ Key design features:
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create your feature branch: `git checkout -b feat/your-feature`
@@ -221,6 +221,6 @@ Key design features:
 
 ---
 
-## 📄 License
+## License
 
 This project is part of the **KaatchiMei** RAG pipeline.
